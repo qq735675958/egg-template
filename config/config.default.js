@@ -18,7 +18,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1569211352848_6629';
 
   // 配置需要的中间件，数组顺序即为中间件的加载顺序
-  config.middleware = [ 'gzip','notfoundHandler' ],
+  config.middleware = [ 'gzip','notfoundHandler','authJwt' ],
 
   config.gzip = {
     threshold:512,
@@ -68,7 +68,7 @@ module.exports = appInfo => {
   /**
    * exports.security 安全配置
    */
-  exports.security = {
+  config.security = {
     csrf: {
       enable: false,
     },
@@ -80,11 +80,20 @@ module.exports = appInfo => {
   /**
    * 跨域配置
    */
-  exports.cors = {
+  config.cors = {
     // {string|Function} origin: '*',
     // {string|Array} allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
     // credentials:true,
   };
+
+  /**
+   * jwt 配置
+   */
+  config.jwt = {
+    singar:{
+      data:'login_auth'
+    }
+  }
  
 
   return {
