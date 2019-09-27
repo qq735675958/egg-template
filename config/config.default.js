@@ -94,7 +94,16 @@ module.exports = appInfo => {
       data:'login_auth'
     }
   }
- 
+
+  config.io = {  
+    namespace: {
+      init: { wsEngine: 'uws' },  //默认是ws引擎
+      '/': {
+        connectionMiddleware: [],
+        packetMiddleware: [],
+      },
+    },
+  };
 
   return {
     ...config,

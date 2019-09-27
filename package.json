@@ -10,6 +10,7 @@
     "egg": "^2.15.1",
     "egg-cors": "^2.2.0",
     "egg-scripts": "^2.11.0",
+    "egg-socket.io": "^4.1.6",
     "egg-view-ejs": "^2.0.0",
     "jsonwebtoken": "^8.5.1"
   },
@@ -28,7 +29,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-egg",
     "stop": "egg-scripts stop --title=egg-server-egg",
-    "dev": "egg-bin dev --port=3000",
+    "dev": "egg-bin dev --cluster --sticky",
     "prod": "egg-bin dev --port=8000",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
